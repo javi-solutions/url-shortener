@@ -43,6 +43,15 @@
       "javi-solutions\\url-sortener\\": "src"
     }
   },
+  "extra": {
+    "laravel": {
+        "providers": [
+            "JaviSolutions\\UrlShortener\\UrlShorteningsServiceProvider"
+        ],
+        "aliases": {
+        }
+    }
+},
   "minimum-stability": "dev",
   "prefer-stable": true
 }
