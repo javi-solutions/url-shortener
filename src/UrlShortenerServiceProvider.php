@@ -5,7 +5,7 @@ namespace JaviSolutions\UrlShortener;
 use Illuminate\Database\Eloquent\Factory as EloquentFactory;
 use Illuminate\Support\ServiceProvider;
 
-class UrlShorteningsServiceProvider extends ServiceProvider
+class UrlShorteninerServiceProvider extends ServiceProvider
 {
 
     public function register()
