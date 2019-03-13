@@ -4,6 +4,7 @@ namespace JaviSolutions\UrlShortener;
 
 use Illuminate\Database\Eloquent\Factory as EloquentFactory;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class UrlShorteninerServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,10 @@ class UrlShorteninerServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        Relation::morphMap([
+            'urlShortening' => JaviSolutions\UrlShortener\Models\UrlShortening::class,
+            'urlShorteningVisit' => JaviSolutions\UrlShortener\Models\urlShorteningVisit::class,
+        ]);
 
         if ($this->app->runningInConsole()) {
             $this->registerMigrations();
