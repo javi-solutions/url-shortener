@@ -7,18 +7,34 @@ composer require javi-solutions/url-shortener
 
 ## Settings
 
-If you want to use the package without routes add JaviSolutions\UrlShortener\UrlShortener::withoutRoutes(); to register method of your AppServiceProvider.
+If you want to use the package *without routes* add:
 
-If you want to change prefix of route add JaviSolutions\UrlShortener\UrlShortener::withPrefix('some-prefix'); to register method of your AppServiceProvider.
+```php
+JaviSolutions\UrlShortener\UrlShortener::withoutRoutes();
+```
+to *register* method of your *AppServiceProvider*.
+
+If you want to *change prefix* of route add:
+
+```php
+JaviSolutions\UrlShortener\UrlShortener::withPrefix('some-prefix');
+```
+
+to register method of your AppServiceProvider.
+
+If you want to *turn off default observer* of visit add:
+
+```php
+JaviSolutions\UrlShortener\UrlShortener::withoutObserver();
+```
+
+to register method of your AppServiceProvider. Default observer adds ip and user agent to model data in creating method in case they are not set.
 
 ## Seeding
 
-If you want to seed in your application add:
+If you want to seed in your application use package seeders:
 
-use JaviSolutions\UrlShortener\Database\Seeds\UrlShorteningSeeder;
-use JaviSolutions\UrlShortener\Database\Seeds\UrlShorteningVisitSeeder;
-
-to your seeder and use as:
-
-$this->call(UrlShorteningSeeder::class);
-$this->call(UrlShorteningVisitSeeder::class);
+```php
+$this->call(JaviSolutions\UrlShortener\Database\Seeds\UrlShorteningSeeder::class);
+$this->call(JaviSolutions\UrlShortener\Database\Seeds\UrlShorteningVisitSeeder::class);
+```

@@ -5,15 +5,9 @@ namespace JaviSolutions\UrlShortener;
 class UrlShortener
 {
     private static $withDefaultRoutes = true;
+    private static $withObserver = true;
     private static $prefix = 'UrlShortening';
 
-    /**
-     * Binds the UrlShorteniner routes into the controller.
-     *
-     * @param  callable|null  $callback
-     * @param  array  $options
-     * @return void
-     */
     public static function withoutRoutes()
     {
         self::$withDefaultRoutes = false;
@@ -21,7 +15,7 @@ class UrlShortener
 
     public static function getWithDefaultRoutes()
     {
-        return self::$withDefaultRoutes;
+        return self::$withDefaultRoutes === true;
     }
 
     public static function getPrefix()
@@ -34,4 +28,13 @@ class UrlShortener
         self::$prefix = $prefix;
     }
 
+    public static function getWithObserver()
+    {
+        return self::$withObserver === true;
+    }
+
+    public static function withoutObserver()
+    {
+        self::$withObserver = false;
+    }
 }
