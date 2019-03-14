@@ -3,8 +3,10 @@
 namespace JaviSolutions\UrlShortener;
 
 use Illuminate\Database\Eloquent\Factory as EloquentFactory;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\ServiceProvider;
+use JaviSolutions\UrlShortener\Models\UrlShorteningVisit;
+use JaviSolutions\UrlShortener\Observers\UrlShorteningVisitObserver;
 
 class UrlShorteninerServiceProvider extends ServiceProvider
 {
@@ -26,8 +28,13 @@ class UrlShorteninerServiceProvider extends ServiceProvider
             $this->registerFactories();
         }
 
+        // set observer for visits
+        if (UrlShortener::getWithObserver() === true) {
+            UrlShorteningVisit::observe(UrlShorteningVisitObserver::class);
+        }
+
         // register routes
-        if ( UrlShortener::getWithDefaultRoutes() === true) {
+        if (UrlShortener::getWithDefaultRoutes() === true) {
             require __DIR__ . '/Routes.php';
         }
     }
