@@ -13,6 +13,6 @@ class UrlShorteningVisitSeeder extends Seeder
      */
     public function run()
     {
-        factory( UrlShorteningVisit::class, 2500)->create();
+        factory(UrlShorteningVisit::class, 2500)->create();
     }
 }
