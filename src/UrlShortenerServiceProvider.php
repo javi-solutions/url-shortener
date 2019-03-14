@@ -25,6 +25,11 @@ class UrlShorteninerServiceProvider extends ServiceProvider
             $this->registerMigrations();
             $this->registerFactories();
         }
+
+        // register routes
+        if ( UrlShortener::getWithDefaultRoutes() === true) {
+            require __DIR__ . '/Routes.php';
+        }
     }
 
     protected function registerMigrations()

@@ -2,9 +2,8 @@
 
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Relations\Relation;
 
-$factory->define(Relation::$morphMap['urlShortening'], function (Faker $faker) {
+$factory->define( JaviSolutions\UrlShortener\Models\UrlShortening::class, function (Faker $faker) {
     return [
         'id' => strtoupper(Str::random(8)),
         'url_target' => $faker->url(),

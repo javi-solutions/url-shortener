@@ -2,7 +2,7 @@
 namespace JaviSolutions\UrlShortener\Database\Seeds;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Relations\Relation;
+use JaviSolutions\UrlShortener\Models\UrlShortening;
 
 class UrlShorteningSeeder extends Seeder
 {
@@ -13,6 +13,6 @@ class UrlShorteningSeeder extends Seeder
      */
     public function run()
     {
-        factory(Relation::$morphMap['urlShortening'], 50)->create();
+        factory( UrlShortening::class, 50)->create();
     }
 }
