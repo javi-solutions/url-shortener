@@ -5,7 +5,9 @@ namespace JaviSolutions\UrlShortener;
 use Illuminate\Database\Eloquent\Factory as EloquentFactory;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
+use JaviSolutions\UrlShortener\Models\UrlShortening;
 use JaviSolutions\UrlShortener\Models\UrlShorteningVisit;
+use JaviSolutions\UrlShortener\Observers\UrlShorteningObserver;
 use JaviSolutions\UrlShortener\Observers\UrlShorteningVisitObserver;
 
 class UrlShorteninerServiceProvider extends ServiceProvider
@@ -32,6 +34,9 @@ class UrlShorteninerServiceProvider extends ServiceProvider
         if (UrlShortener::getWithObserver() === true) {
             UrlShorteningVisit::observe(UrlShorteningVisitObserver::class);
         }
+
+        // register observer for generated IDs in shortening model
+        UrlShortening::observe(UrlShorteningObserver::class);
 
         // register routes
         if (UrlShortener::getWithDefaultRoutes() === true) {

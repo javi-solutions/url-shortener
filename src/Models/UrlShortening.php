@@ -14,7 +14,6 @@ class UrlShortening extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
         'url_target',
         'user_id',
     ];

@@ -2,7 +2,7 @@
 namespace JaviSolutions\UrlShortener\Database\Seeds;
 
 use Illuminate\Database\Seeder;
-use JaviSolutions\UrlShortener\Models\UrlShortening;
+use JaviSolutions\UrlShortener\Models\UrlShorteningVisit;
 
 class UrlShorteningVisitSeeder extends Seeder
 {
@@ -13,6 +13,6 @@ class UrlShorteningVisitSeeder extends Seeder
      */
     public function run()
     {
-        factory( UrlShortening::class, 2500)->create();
+        factory( UrlShorteningVisit::class, 2500)->create();
     }
 }

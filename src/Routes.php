@@ -3,6 +3,7 @@
 use JaviSolutions\UrlShortener\Models\UrlShortening;
 use JaviSolutions\UrlShortener\UrlShortener;
 use JaviSolutions\UrlShortener\Models\UrlShorteningVisit;
+use Illuminate\Support\Facades\Redirect;
 
 Route::get('/'. UrlShortener::getPrefix() . '/{id}', function ($id) {
     $urlShortening = UrlShortening::findOrFail($id);
@@ -10,5 +11,5 @@ Route::get('/'. UrlShortener::getPrefix() . '/{id}', function ($id) {
     UrlShorteningVisit::create([
         'url_shortening_id' => $urlShortening->id
     ]);
-    return redirect( UrlShortening::findOrFail($id)->url_target);
+    return Redirect::to( UrlShortening::findOrFail($id)->url_target, 301);
 });
