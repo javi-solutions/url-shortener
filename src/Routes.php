@@ -12,4 +12,4 @@ Route::get('/' . UrlShortener::getPrefix() . '/{id}', function ($id) {
         'url_shortening_id' => $urlShortening->id,
     ]);
     return Redirect::to(UrlShortening::findOrFail($id)->url_target, 301);
-});
+})->name('urlShortener');

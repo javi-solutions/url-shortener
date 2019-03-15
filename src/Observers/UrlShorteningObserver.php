@@ -2,6 +2,7 @@
 
 namespace JaviSolutions\UrlShortener\Observers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use JaviSolutions\UrlShortener\Models\UrlShortening;
 
@@ -22,6 +23,11 @@ class UrlShorteningObserver
             } while (UrlShortening::find($generatedId));
 
             $urlShortening->id = $generatedId;
+        }
+
+        // prepare user id if not set
+        if (empty($urlShortening->user_id)) {
+            $urlShortening->user_id = Auth::id();
         }
     }
 }
