@@ -38,4 +38,9 @@ class UrlShortening extends Model
     {
         return $this->hasMany(Relation::$morphMap['urlShorteningVisit']);
     }
+
+    public function getUrlAttribute()
+    {
+        return $this->id !== null ? route('urlShortener', ['id' => $this->id]) : false;
+    }
 }

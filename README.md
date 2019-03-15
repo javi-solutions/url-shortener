@@ -12,6 +12,9 @@ If you want to use the package *without routes* add:
 ```php
 JaviSolutions\UrlShortener\UrlShortener::withoutRoutes();
 ```
+
+If you add other than Default route, use named route with name *urlShortening*.
+
 to *register* method of your *AppServiceProvider*.
 
 If you want to *change prefix* of route add:
