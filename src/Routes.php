@@ -5,7 +5,7 @@ use JaviSolutions\UrlShortener\Models\UrlShortening;
 use JaviSolutions\UrlShortener\Models\UrlShorteningVisit;
 use JaviSolutions\UrlShortener\UrlShortener;
 
-Route::get('/' . UrlShortener::getPrefix() . '/{id}', function ($id) {
+Route::get(UrlShortener::route() . '/{id}', function ($id) {
     $urlShortening = UrlShortening::findOrFail($id);
 
     UrlShorteningVisit::create([

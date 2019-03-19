@@ -37,4 +37,9 @@ class UrlShortener
     {
         self::$withObserver = false;
     }
+
+    public static function route()
+    {
+        return self::$prefix === null ? '/' : '/' . UrlShortener::getPrefix();
+    }
 }
