@@ -5,7 +5,7 @@ namespace JaviSolutions\UrlShortener;
 class UrlShortener
 {
     private static $withDefaultRoutes = true;
-    private static $withObserver = true;
+    private static $withObservers = true;
     private static $prefix = 'UrlShortening';
 
     public static function withoutRoutes()
@@ -28,14 +28,14 @@ class UrlShortener
         self::$prefix = $prefix;
     }
 
-    public static function getWithObserver()
+    public static function getWithObservers()
     {
-        return self::$withObserver === true;
+        return self::$withObservers === true;
     }
 
     public static function withoutObserver()
     {
-        self::$withObserver = false;
+        self::$withObservers = false;
     }
 
     public static function route()
