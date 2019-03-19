@@ -32,7 +32,7 @@ If you want to *change prefix* of route add:
 JaviSolutions\UrlShortener\UrlShortener::withPrefix('some-prefix');
 ```
 
-to register method of your AppServiceProvider.
+to register method of your AppServiceProvider. Othervise the default prefix is */link/{id}*
 
 If you want to *use redirect on route /{id}* pass null value in.
 
