@@ -31,12 +31,12 @@ class UrlShorteninerServiceProvider extends ServiceProvider
         }
 
         // set observer for visits
-        if (UrlShortener::getWithObserver() === true) {
+        if (UrlShortener::getWithObservers() === true) {
+            // register observer for generated IDs in URL shortening model
+            UrlShortening::observe(UrlShorteningObserver::class);
+            // register observer for URL shortening visit model
             UrlShorteningVisit::observe(UrlShorteningVisitObserver::class);
         }
-
-        // register observer for generated IDs in shortening model
-        UrlShortening::observe(UrlShorteningObserver::class);
 
         // register routes
         if (UrlShortener::getWithDefaultRoutes() === true) {
