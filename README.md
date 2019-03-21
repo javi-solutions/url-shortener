@@ -6,8 +6,9 @@
 
 ## Installation
 
+```console
 composer require javi-solutions/url-shortener
-
+```
 ## Settings
 
 The package can be configurable trought appServiceProvider registration of class values.
