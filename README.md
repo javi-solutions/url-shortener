@@ -21,11 +21,11 @@ If you want to use the package *without routes* add:
 JaviSolutions\UrlShortener\UrlShortener::withoutRoutes();
 ```
 
-### Customizing route prefix
+to *register* method of your *AppServiceProvider*.
 
 If you add other than Default route, use named route with name *urlShortening*.
 
-to *register* method of your *AppServiceProvider*.
+### Customizing route prefix
 
 If you want to *change prefix* of route add:
 
